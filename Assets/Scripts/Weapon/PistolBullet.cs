@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class PistolBullet : MonoBehaviour
 {
+    public Rigidbody rb;
     public float damage = 50f;
-    public float bullet_speed = 20f;
+    public float bullet_speed = 50f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -13,7 +14,15 @@ public class PistolBullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position += transform.forward * bullet_speed * Time.deltaTime;
-        
+        rb = GetComponent<Rigidbody>();
+        rb.linearVelocity = transform.forward * bullet_speed;
+
+           
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("Hit");
+        Destroy(gameObject);
     }
 }
