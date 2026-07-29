@@ -8,21 +8,37 @@ public class PistolBullet : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        rb = GetComponent<Rigidbody>();
+        rb.linearVelocity = transform.forward * bullet_speed;
+
         Destroy(gameObject, 5);
     }
 
     // Update is called once per frame
     void Update()
     {
-        rb = GetComponent<Rigidbody>();
-        rb.linearVelocity = transform.forward * bullet_speed;
 
            
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Hit");
-        Destroy(gameObject);
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            EnemyHealth enemy = collision.gameObject.GetComponent<EnemyHealth>();
+
+            if (enemy != null)
+            {
+                enemy.takeDamage(50);
+                 
+            }
+
+
+            Destroy(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 }

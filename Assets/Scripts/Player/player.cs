@@ -45,7 +45,7 @@ public class player : MonoBehaviour
         Jump();
         Gravity();
         movement();
-        
+ 
     }
 
     void movement()
