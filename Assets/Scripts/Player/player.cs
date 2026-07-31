@@ -9,6 +9,7 @@ public class player : MonoBehaviour
     // Main
     [Header ("Main")]
     public CharacterController controller;
+    public TimeManager timeManager;
 
     [SerializeField] float gravity = 9.81f;
 
@@ -28,8 +29,9 @@ public class player : MonoBehaviour
     public Transform groundCheck;
     public float groundDistance = 0.4f;
     public LayerMask GroundLayer;
-
     bool is_grounded;
+
+    
 
 
     void Update()
@@ -45,6 +47,7 @@ public class player : MonoBehaviour
         Jump();
         Gravity();
         movement();
+        TimeControl();
  
     }
 
@@ -84,8 +87,17 @@ public class player : MonoBehaviour
         }
     }
 
-
-
+    void TimeControl()
+    {
+        if (Input.GetMouseButton(1))
+        {
+            timeManager.SlowMotion();
+        }
+        else
+        {
+            timeManager.NormalTime();
+        }
+    }
 
 
 }
