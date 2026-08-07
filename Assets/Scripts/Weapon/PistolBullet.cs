@@ -9,7 +9,7 @@ public class PistolBullet : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        rb.linearVelocity = transform.forward * bullet_speed;
+        rb.AddForce(transform.forward * bullet_speed, ForceMode.Impulse);
 
         Destroy(gameObject, 5);
     }

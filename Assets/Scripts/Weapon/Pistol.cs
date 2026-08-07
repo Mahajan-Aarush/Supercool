@@ -17,21 +17,22 @@ public class Pistol : MonoBehaviour
     }
     void shoot()
     {
-        Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f));
+        Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0.0f));
         RaycastHit hit;
         Vector3 targetPositon;
 
-        if (Physics.Raycast(ray, out hit))
+        if (Physics.Raycast(ray, out hit, 1000f))
         {
             targetPositon = hit.point;
         }
         else
         {
-            targetPositon = ray.GetPoint(1000f);
+            targetPositon = ray.GetPoint(75f);
         }
 
         Vector3 direction = (targetPositon - BulletSpawner.position).normalized;
 
-        Instantiate(PistolBullet, BulletSpawner.position, Quaternion.LookRotation(direction));
+        GameObject currentbullet = Instantiate(PistolBullet, BulletSpawner.position, Quaternion.identity);
+        currentbullet.transform.forward = direction;
     }
 }

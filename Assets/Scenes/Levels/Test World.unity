@@ -3560,7 +3560,7 @@ Transform:
   m_GameObject: {fileID: 1158349638}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.5, y: 0.52, z: 0}
+  m_LocalPosition: {x: -1.25, y: 0.52, z: 3.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4349,7 +4349,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1242758956954543813, guid: 9f639d2834e314e40863a2980a993cbb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.8497021
+      value: -4.599702
       objectReference: {fileID: 0}
     - target: {fileID: 1242758956954543813, guid: 9f639d2834e314e40863a2980a993cbb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4744,7 +4744,7 @@ Mesh:
       - serializedVersion: 1
         m_IndexStart: 0
         m_IndexCount: 0
---- !u!1001 &1849005860
+--- !u!1001 &1810073297
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -4754,19 +4754,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2395619511976468036, guid: 0f3d137f1edc15045a95cc3ea8f4faf8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.24275
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2395619511976468036, guid: 0f3d137f1edc15045a95cc3ea8f4faf8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.5000001
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 2395619511976468036, guid: 0f3d137f1edc15045a95cc3ea8f4faf8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.121251
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2395619511976468036, guid: 0f3d137f1edc15045a95cc3ea8f4faf8, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2395619511976468036, guid: 0f3d137f1edc15045a95cc3ea8f4faf8, type: 3}
       propertyPath: m_LocalRotation.x
@@ -4774,7 +4774,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2395619511976468036, guid: 0f3d137f1edc15045a95cc3ea8f4faf8, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2395619511976468036, guid: 0f3d137f1edc15045a95cc3ea8f4faf8, type: 3}
       propertyPath: m_LocalRotation.z
@@ -4786,31 +4786,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2395619511976468036, guid: 0f3d137f1edc15045a95cc3ea8f4faf8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 2395619511976468036, guid: 0f3d137f1edc15045a95cc3ea8f4faf8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2992902333734888069, guid: 0f3d137f1edc15045a95cc3ea8f4faf8, type: 3}
-      propertyPath: MouseSensi
-      value: 500
-      objectReference: {fileID: 0}
     - target: {fileID: 7776715119178783956, guid: 0f3d137f1edc15045a95cc3ea8f4faf8, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 9021759750850771266, guid: 0f3d137f1edc15045a95cc3ea8f4faf8, type: 3}
-      propertyPath: gravity
-      value: 19.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 9021759750850771266, guid: 0f3d137f1edc15045a95cc3ea8f4faf8, type: 3}
-      propertyPath: jump_speed
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 9021759750850771266, guid: 0f3d137f1edc15045a95cc3ea8f4faf8, type: 3}
-      propertyPath: GroundLayer.m_Bits
-      value: 64
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5182,8 +5166,8 @@ SceneRoots:
   - {fileID: 431363830}
   - {fileID: 1158349644}
   - {fileID: 1296180337}
-  - {fileID: 1849005860}
   - {fileID: 1408198090}
   - {fileID: 1484388611}
   - {fileID: 1176943511}
   - {fileID: 67063268}
+  - {fileID: 1810073297}
