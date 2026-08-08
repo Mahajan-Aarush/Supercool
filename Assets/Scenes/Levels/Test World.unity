@@ -4805,6 +4805,10 @@ PrefabInstance:
       value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 9021759750850771266, guid: 0f3d137f1edc15045a95cc3ea8f4faf8, type: 3}
+      propertyPath: groundDistance
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9021759750850771266, guid: 0f3d137f1edc15045a95cc3ea8f4faf8, type: 3}
       propertyPath: shakeintensity
       value: 0.03
       objectReference: {fileID: 0}

@@ -30,15 +30,16 @@ public class player : MonoBehaviour
     // Ground Detection
     [Header ("Ground Detection")]
     public Transform groundCheck;
-    public float groundDistance = 0.4f;
+    public float groundDistance = 0.3f;
     public LayerMask GroundLayer;
     bool is_grounded;
 
     // fov change
     [Header ("FOV Change")]
-    [SerializeField] float fov_sprint = 65f;
+    [SerializeField] float fov_sprint = 62f;
     [SerializeField] float fov_walk = 60f;
-    [SerializeField] float fov_jump = 70f;
+    [SerializeField] float fov_jump = 65f;
+    [SerializeField] float fov_slowmotion = 70f;
 
     
     void Update()
@@ -121,16 +122,14 @@ public class player : MonoBehaviour
         if (Input.GetMouseButton(1))
         {
             timeManager.SlowMotion();
+            fov_change(fov_slowmotion, 5f);
         }
         else
         {
             timeManager.NormalTime();
+            fov_change(fov_walk, 5f);
         }
     }
-
-
-
-
     void fov_change(float target_fov, float fov_change_speed)
     {
         playerCamera.GetComponent<Camera>().fieldOfView = Mathf.Lerp(playerCamera.GetComponent<Camera>().fieldOfView, target_fov, fov_change_speed * Time.deltaTime);

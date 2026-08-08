@@ -7,7 +7,23 @@ public class Pistol : MonoBehaviour
     public Transform BulletSpawner;
     
 
-    // Update is called once per frame
+    // roational sway
+    [Header ("Rotational Sway")]
+    [SerializeField] float sway_amount = 8f;
+    [SerializeField] float sway_speed = 5f;
+    Quaternion original_rotation;
+
+    // positional sway
+    [Header ("Positional Sway")]
+    Vector3 original_position;
+    [SerializeField] Transform hand_transform;
+    [SerializeField] Transform Playertransform;
+
+    void Start()
+    {
+        original_rotation = transform.localRotation;
+        original_position = transform.localPosition;
+    }
     void Update()
     {
         if (Input.GetButtonDown("Fire1"))
@@ -15,7 +31,9 @@ public class Pistol : MonoBehaviour
             shoot();
             
         }
-        
+
+
+        sway();       
     }
     void shoot()
     {
@@ -37,6 +55,22 @@ public class Pistol : MonoBehaviour
         GameObject currentbullet = Instantiate(PistolBullet, BulletSpawner.position, Quaternion.identity);
         currentbullet.transform.forward = direction;
 
-        playerCamera.ShakeCamera(0.02f, 0.01f);
+       // playerCamera.ShakeCamera(0.02f, 0.01f);
+    }
+
+
+    void sway()
+    {
+        //rotational sway
+        float mouseX = Input.GetAxis("Mouse X");
+        float mouseY = Input.GetAxis("Mouse Y");
+
+        Quaternion target_rotation = original_rotation * Quaternion.Euler(-mouseY * sway_amount, mouseX * sway_amount, 0);
+        transform.localRotation = Quaternion.Slerp(transform.localRotation, target_rotation, sway_speed * Time.deltaTime);
+
+        // positional sway (doesn't work properly yet)
+        Vector3 target_position = hand_transform.localPosition;
+
+        transform.localPosition = Vector3.Lerp(transform.localPosition, target_position, sway_speed * Time.deltaTime);
     }
 }
