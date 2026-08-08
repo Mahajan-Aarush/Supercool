@@ -29,7 +29,7 @@ public class PistolBullet : MonoBehaviour
 
             if (enemy != null)
             {
-                enemy.takeDamage(50);
+                enemy.takeDamage(damage);
                  
             }
 

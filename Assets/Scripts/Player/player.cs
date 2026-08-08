@@ -6,10 +6,12 @@ using UnityEngine;
 
 public class player : MonoBehaviour
 {
+    
     // Main
     [Header ("Main")]
     public CharacterController controller;
     public TimeManager timeManager;
+    public PlayerCamera playerCamera;
 
     [SerializeField] float gravity = 9.81f;
 
@@ -23,6 +25,7 @@ public class player : MonoBehaviour
     // jump
     [Header ("Jump")]
     [SerializeField] float jump_speed = 2f;
+    bool was_grounded;
 
     // Ground Detection
     [Header ("Ground Detection")]
@@ -31,9 +34,13 @@ public class player : MonoBehaviour
     public LayerMask GroundLayer;
     bool is_grounded;
 
+    // fov change
+    [Header ("FOV Change")]
+    [SerializeField] float fov_sprint = 65f;
+    [SerializeField] float fov_walk = 60f;
+    [SerializeField] float fov_jump = 70f;
+
     
-
-
     void Update()
     {
         // ground check
@@ -62,10 +69,12 @@ public class player : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftShift))
         {
             speed = sprint_speed;
+            fov_change(fov_sprint, 2f);
         }
         else
         {
             speed = walk_speed; 
+            fov_change(fov_walk, 2f);
         }
 
         controller.Move(move * speed * Time.deltaTime);
@@ -78,15 +87,35 @@ public class player : MonoBehaviour
         velocity.y -= gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
     }
-
     void Jump()
     {
+        
         if (Input.GetButtonDown("Jump") && is_grounded)
         {
             velocity.y = Mathf.Sqrt(jump_speed * 2f * gravity);
+            
         }
-    }
+        // jump fov change
+        if (!is_grounded)
+        {
+            fov_change(fov_jump, 10f);
+            playerCamera.jumpeffect();
+        }
+        else
+        {
+            fov_change(fov_walk, 10f);
+            playerCamera.landingeffect();
+        }
 
+    // effect at landing
+        if (!was_grounded && is_grounded)
+        {
+        }
+        was_grounded = is_grounded;
+        
+
+
+    }
     void TimeControl()
     {
         if (Input.GetMouseButton(1))
@@ -100,4 +129,12 @@ public class player : MonoBehaviour
     }
 
 
+
+
+    void fov_change(float target_fov, float fov_change_speed)
+    {
+        playerCamera.GetComponent<Camera>().fieldOfView = Mathf.Lerp(playerCamera.GetComponent<Camera>().fieldOfView, target_fov, fov_change_speed * Time.deltaTime);
+    }
+
+    
 }

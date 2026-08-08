@@ -2,8 +2,10 @@ using UnityEngine;
 
 public class Pistol : MonoBehaviour
 {
+    public PlayerCamera playerCamera;
     public GameObject PistolBullet;
     public Transform BulletSpawner;
+    
 
     // Update is called once per frame
     void Update()
@@ -34,5 +36,7 @@ public class Pistol : MonoBehaviour
 
         GameObject currentbullet = Instantiate(PistolBullet, BulletSpawner.position, Quaternion.identity);
         currentbullet.transform.forward = direction;
+
+        playerCamera.ShakeCamera(0.02f, 0.01f);
     }
 }

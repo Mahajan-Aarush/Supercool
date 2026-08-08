@@ -4796,6 +4796,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 9021759750850771266, guid: 0f3d137f1edc15045a95cc3ea8f4faf8, type: 3}
+      propertyPath: playerCamera
+      value: 
+      objectReference: {fileID: 2137353837}
+    - target: {fileID: 9021759750850771266, guid: 0f3d137f1edc15045a95cc3ea8f4faf8, type: 3}
+      propertyPath: shakeduration
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 9021759750850771266, guid: 0f3d137f1edc15045a95cc3ea8f4faf8, type: 3}
+      propertyPath: shakeintensity
+      value: 0.03
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5157,6 +5169,17 @@ Mesh:
       - serializedVersion: 1
         m_IndexStart: 0
         m_IndexCount: 0
+--- !u!114 &2137353837 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2992902333734888069, guid: 0f3d137f1edc15045a95cc3ea8f4faf8, type: 3}
+  m_PrefabInstance: {fileID: 1810073297}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6006ef12728408e4aa084cce6871ac47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
